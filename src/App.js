@@ -2,16 +2,17 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import TodoList from './components/TodoList/TodoList';
+import { DarkModeProvider } from './components/context/DarkModeContext';
 
-const filters=['all','active','completed'];
+const filters = ['all','active','completed'];
 function App() {
 
-  const [filter,Setfilter] = useState(filters[0]);
+  const [filter,SetFilter] = useState(filters[0]);
   return (
-    <>
-      <Header filter={filter} filters={filters} onFilterChange={Setfilter}/>
+    <DarkModeProvider>
+      <Header filter={filter} filters={filters} onFilterChange={SetFilter}/>
       <TodoList filter={filter}/>
-    </>
+    </DarkModeProvider>
   );
 }
 
