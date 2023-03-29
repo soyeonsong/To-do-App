@@ -16,6 +16,7 @@ export default function TodoList({ filter }) {
     useEffect(()=>{
       localStorage.setItem('todos',JSON.stringify(todos))
     }, [todos]);
+    // 객체를 배열에 저장하기 위해 JSON변환사용
   const filtered = getFilteredItems(todos, filter);
   return (
     <section className={styles.container}>
